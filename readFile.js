@@ -1,9 +1,14 @@
 var arch = require("fs");
-try{
-var lectura = arch.readFileSync("./prueba.txt", "utf-8");
-}catch(e){
-    console.log("Ocurrió un error");
-} 
+
+arch.readFile("./prueba.txt", (err,data)=>{
+    if(err)
+        throw err;
+    else{
+        let objetito = JSON.parse(data);
+        console.log(objetito);
+    }
+    
+});
+
 //arch.writeFileSync("./prueba.txt", "Hola Eduardo");
 //arch.appendFileSync("./prueba.txt","Hola2");
-console.log(lectura);
