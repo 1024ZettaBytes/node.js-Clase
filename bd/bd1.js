@@ -21,4 +21,4 @@ conexion.connect((err) => {
         //conexion.end();
     }
 });
-console.log("[*] Continuando con el programa...");
+console.log("[x] Fin del script.");
