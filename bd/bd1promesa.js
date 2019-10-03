@@ -15,6 +15,7 @@ let promise = new Promise((resolve, reject) => {
             console.log("[*] Connected!");
             connection.query("SELECT * FROM alumno", (err, res, cols) => {
                 console.log("[*] Data:");
+                
                 return resolve(res);
             });
         }
@@ -23,7 +24,7 @@ let promise = new Promise((resolve, reject) => {
 promise.then((par1)=>{
     console.log(par1);
     connection.end();
+    console.log("[*] Program finished.");
 }).catch((e)=>{
     console.log(e);
 });
-console.log("[*] Program finished.");
