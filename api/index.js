@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 const path = require("path");
 app.use(express.json());
+app.use(express.urlencoded({extended:false}));
 var students = [
     {
     "id": 1,
@@ -34,6 +35,7 @@ app.post("/alumnos", (req, res)=>{
     }
     students.push(est);
     res.send(est);
+    res.end();
 });
 app.listen(3000, ()=>{
     
