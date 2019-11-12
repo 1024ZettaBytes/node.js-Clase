@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function eliminaFila(){
+            const filas = document.getElementById("miTabla").rows.length;
+            document.getElementById("miTabla").deleteRow(filas-1);
+        }
+        function cuentaFilas() {
+            const filas = document.getElementById("miTabla").rows.length;
+            alert("Su tabla tiene" + filas + " filas");
+        }
+        function agregaFila() {
+            let texto1 = document.createTextNode(document.getElementById("idNuevo").value);
+            let texto2 = document.createTextNode(document.getElementById("nombreNuevo").value);
+
+            let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+
+            td1.appendChild(texto1);
+            td2.appendChild(texto2);
+
+            let fila = document.createElement("tr");
+            fila.appendChild(td1);
+            fila.appendChild(td2);
+            document.getElementById("miTabla").appendChild(fila);
+
+        }    
+    </script>
+    <table id="miTabla" border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Juan</td>
+        </tr>
+    </table>
+    <input id="idNuevo" type="number" placeholder="ID">
+    <input id="nombreNuevo" type="text" placeholder="Nombre">
+    <button onclick="agregaFila()">Agrega Fila</button>
+    <button onclick="cuentaFilas()">Contar Filas</button>
+    <button onclick="eliminaFila()">Elimina Filas</button>
+</body>
+
+</html>
