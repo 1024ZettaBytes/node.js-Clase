@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="mainDrop.js"></script>
+</head>
+
+<body>
+    <form action="">
+        <select name="" id="selPais">
+            <option value="">Selecciona tu país</option>
+        </select>
+        <br>
+        <br>
+        <select name="" id="selCiudad">
+            <option value="">Seleccione la ciudad</option>
+        </select>
+    </form>
+    <script>
+        let objPais = {
+            Mexico: ['Culiacán', 'Monterrey', 'La Paz', 'Guadalajara', 'Guasave'],
+            USA: ['San Francisco', 'Los Ángeles', 'San Diego'],
+            Canada: ['Vancouver', 'Montreal', 'Ottawa']
+        };
+        let selPais = document.getElementById("selPais");
+        let selCiudad = document.getElementById("selCiudad");
+        for (pais in objPais) {
+            let optionElement = document.createElement("option");
+            optionElement.textContent = pais;
+            selPais.appendChild(optionElement);
+        }
+
+
+        selPais.onchange = function () {
+            selCiudad.length = 1;
+            if (this.selectedIndex != 0) {
+                for (i = 0; i < objPais[this.value].length; i++) {
+                    let optionElement = document.createElement("option");
+                    optionElement.textContent = objPais[this.value][i];
+                    selCiudad.appendChild(optionElement);
+                }
+
+            }
+        };
+
+    </script>
+</body>
+
+</html>
